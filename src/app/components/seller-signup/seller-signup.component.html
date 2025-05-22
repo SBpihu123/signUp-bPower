@@ -1,0 +1,83 @@
+<div class="form-container">
+  <h2>Seller Signup</h2>
+  <form [formGroup]="sellerForm" (ngSubmit)="onSubmit()" class="signup-form">
+    <mat-form-field appearance="outline">
+      <mat-label>Business Name</mat-label>
+      <input matInput formControlName="businessName" placeholder="Enter your business name">
+      <mat-error>{{ getErrorMessage('businessName') }}</mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Owner Name</mat-label>
+      <input matInput formControlName="ownerName" placeholder="Enter owner's name">
+      <mat-error>{{ getErrorMessage('ownerName') }}</mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>GSTIN</mat-label>
+      <input matInput formControlName="gstin" placeholder="Enter your GSTIN number">
+      <mat-error>{{ getErrorMessage('gstin') }}</mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Annual Turnover (₹)</mat-label>
+      <input matInput type="number" formControlName="turnover" placeholder="Enter annual turnover">
+      <mat-error>{{ getErrorMessage('turnover') }}</mat-error>
+    </mat-form-field>
+
+    <div formGroupName="bankDetails" class="bank-details">
+      <h3>Bank Details</h3>
+      <mat-form-field appearance="outline">
+        <mat-label>Account Number</mat-label>
+        <input matInput formControlName="accountNumber" placeholder="Enter account number">
+        <mat-error>{{ getErrorMessage('bankDetails.accountNumber') }}</mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>IFSC Code</mat-label>
+        <input matInput formControlName="ifscCode" placeholder="Enter IFSC code">
+        <mat-error>{{ getErrorMessage('bankDetails.ifscCode') }}</mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Account Holder Name</mat-label>
+        <input matInput formControlName="accountHolderName" placeholder="Enter account holder name">
+        <mat-error>{{ getErrorMessage('bankDetails.accountHolderName') }}</mat-error>
+      </mat-form-field>
+    </div>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Product Categories</mat-label>
+      <mat-select formControlName="productCategories" multiple>
+        <mat-option *ngFor="let category of productCategories" [value]="category">
+          {{category}}
+        </mat-option>
+      </mat-select>
+      <mat-error>{{ getErrorMessage('productCategories') }}</mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Email</mat-label>
+      <input matInput formControlName="email" placeholder="Enter your email">
+      <mat-error>{{ getErrorMessage('email') }}</mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Phone Number</mat-label>
+      <input matInput formControlName="phone" placeholder="Enter your phone number">
+      <mat-error>{{ getErrorMessage('phone') }}</mat-error>
+    </mat-form-field>
+
+    <div class="file-upload">
+      <label>Upload Documents (PAN Card, etc.)</label>
+      <input type="file" (change)="onFileSelected($event)" accept=".pdf,.jpg,.jpeg,.png">
+      <mat-error *ngIf="sellerForm.get('documents')?.hasError('required')">
+        Please upload required documents
+      </mat-error>
+    </div>
+
+    <button mat-raised-button color="primary" type="submit" [disabled]="!sellerForm.valid">
+      Sign Up
+    </button>
+  </form>
+</div> 

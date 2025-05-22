@@ -1,0 +1,38 @@
+<div class="form-container">
+  <h2>Buyer Signup</h2>
+  <form [formGroup]="buyerForm" (ngSubmit)="onSubmit()" class="signup-form">
+    <mat-form-field appearance="outline">
+      <mat-label>Full Name</mat-label>
+      <input matInput formControlName="name" placeholder="Enter your full name">
+      <mat-error>{{ getErrorMessage('name') }}</mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Business Name</mat-label>
+      <input matInput formControlName="businessName" placeholder="Enter your business name">
+      <mat-error>{{ getErrorMessage('businessName') }}</mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>GSTIN</mat-label>
+      <input matInput formControlName="gstin" placeholder="Enter your GSTIN number">
+      <mat-error>{{ getErrorMessage('gstin') }}</mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Email</mat-label>
+      <input matInput formControlName="email" placeholder="Enter your email">
+      <mat-error>{{ getErrorMessage('email') }}</mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Phone Number</mat-label>
+      <input matInput formControlName="phone" placeholder="Enter your phone number">
+      <mat-error>{{ getErrorMessage('phone') }}</mat-error>
+    </mat-form-field>
+
+    <button mat-raised-button color="primary" type="submit" [disabled]="!buyerForm.valid">
+      Sign Up
+    </button>
+  </form>
+</div> 
