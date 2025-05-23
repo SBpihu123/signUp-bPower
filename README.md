@@ -1,59 +1,72 @@
-# SignupForms
+# Business Signup Forms
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.12.
+This project implements signup forms for buyers and sellers with dynamic validation and cross-platform compatibility.
 
-## Development server
+## Features
 
-To start a local development server, run:
+### Buyer Signup Form
+- Full Name
+- Business Name
+- GSTIN (with validation)
+- Email
+- Phone Number
 
+### Seller Signup Form
+- Business Name
+- Owner Name
+- GSTIN (with validation)
+- Annual Turnover (₹2-50 Cr range)
+- Bank Details (Account Number, IFSC Code, Account Holder Name)
+- Product Categories (multi-select)
+- Email
+- Phone Number
+- Document Upload (PAN Card, etc.)
+
+## Technologies Used
+- Angular 17
+- Angular Material
+- TypeScript
+- HTML5
+- CSS3
+
+## Setup Instructions
+
+1. Clone the repository:
+```bash
+git clone <repository-url>
+cd signup-forms
+```
+
+2. Install dependencies:
+```bash
+npm install
+```
+
+3. Start the development server:
 ```bash
 ng serve
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+4. Open your browser and navigate to `http://localhost:4200`
 
-## Code scaffolding
+## Build
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
 
-```bash
-ng generate component component-name
-```
+## Deployment
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+The project is configured for deployment on Netlify. The `netlify.toml` file contains the necessary configuration.
 
-```bash
-ng generate --help
-```
+## Form Validation
 
-## Building
+- All fields are required
+- GSTIN validation using regex pattern
+- Email format validation
+- Phone number validation (10 digits)
+- Turnover range validation (₹2-50 Cr)
+- Bank account number validation
+- IFSC code validation
 
-To build the project run:
+## Cross-Platform Compatibility
 
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+The forms are designed to be responsive and work across different devices and screen sizes.
